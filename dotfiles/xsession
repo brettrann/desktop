@@ -20,13 +20,13 @@ zeitgeist-daemon -r &
 
 xcompmgr &
 
-tianbar &
+# tianbar &
 
-nm-applet &
+# nm-applet &
 
-gnome-screensaver &
+# gnome-screensaver &
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 (sleep 120 && /usr/lib/deja-dup/deja-dup/deja-dup-monitor) &
 
@@ -39,4 +39,5 @@ fi
 
 $DESKTOP_ROOT/edit-server/edit-server &
 
-exec xmonad
+# exec startlxde
+exec terminator

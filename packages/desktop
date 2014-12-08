@@ -11,7 +11,10 @@ infinality-bundle
 infinality-bundle-multilib
 lightdm
 lightdm-gtk3-greeter
+lxinput
 lxappearance
+lxrandr
+lxsession
 mosh
 network-manager-applet
 notify-osd
