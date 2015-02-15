@@ -9,12 +9,24 @@ compinit
 
 autoload -Uz promptinit
 promptinit
-prompt redhat
 
 # global /etc/zshprofile overrides $PATH
 . $HOME/.zshenv
 export EDITOR=vim
 export PAGER='less -R'
+
+# source $(dirname $(dirname $(readlink $0)))/antigen/antigen.zsh
+. ~/projects/desktop/antigen/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle git
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen theme jreese
+
+antigen apply
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -36,5 +48,3 @@ bindkey '^[[4~' vi-end-of-line
 bindkey '^[[1~' vi-beginning-of-line
 
 source /usr/share/autojump/autojump.zsh
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
