@@ -1,65 +1,77 @@
 [global_config]
-  title_transmit_bg_color = "#c48a8b"
-  inactive_color_offset = 0.71
   borderless = True
+  inactive_color_offset = 0.71
+  title_transmit_bg_color = "#c48a8b"
 [keybindings]
-[profiles]
-  [[default]]
-    use_system_font = False
-    background_image = None
-    foreground_color = "#839496"
-    scroll_on_output = False
-    show_titlebar = False
-    font = Source Code Pro for Powerline Medium 10
-    background_color = "#002b36"
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
-  [[twoup header/footer]]
-    [[[child0]]]
-      position = 960:17
       type = Window
+  [[dev]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 3ff7ea27-5010-4e49-adcc-95cdbb00255c
+      last_active_window = True
+      maximised = False
       order = 0
       parent = ""
+      position = 960:17
       size = 958, 957
+      title = dev@arch: ~
+      type = Window
     [[[child1]]]
-      position = 858
-      type = VPaned
       order = 0
       parent = child0
-    [[[child2]]]
-      position = 140
+      position = 819
+      ratio = 0.858411703239
       type = VPaned
+    [[[child2]]]
       order = 0
       parent = child1
+      position = 142
+      ratio = 0.176434676435
+      type = VPaned
     [[[child4]]]
-      position = 478
-      type = HPaned
       order = 1
       parent = child2
+      position = 476
+      ratio = 0.499478079332
+      type = HPaned
     [[[terminal3]]]
-      profile = default
-      type = Terminal
       order = 0
       parent = child2
-    [[[terminal5]]]
       profile = default
       type = Terminal
+      uuid = ef068906-0845-4bed-b566-2670f7217d21
+    [[[terminal5]]]
       order = 0
       parent = child4
-    [[[terminal7]]]
       profile = default
       type = Terminal
+      uuid = 3ff7ea27-5010-4e49-adcc-95cdbb00255c
+    [[[terminal6]]]
+      order = 1
+      parent = child4
+      profile = default
+      type = Terminal
+      uuid = c96bcac1-daca-4857-b497-574db0d7a6a9
+    [[[terminal7]]]
       order = 1
       parent = child1
-    [[[terminal6]]]
       profile = default
       type = Terminal
-      order = 1
-      parent = child4
+      uuid = 0bea3604-8917-4d43-86aa-884079f0f2ef
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#002b36"
+    background_image = None
+    font = Source Code Pro for Powerline Medium 10
+    foreground_color = "#839496"
+    scroll_on_output = False
+    show_titlebar = False
+    use_system_font = False
