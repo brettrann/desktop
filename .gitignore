@@ -5,8 +5,6 @@
 /config/hexchat/scrollback
 /dotfiles/ipython/profile_default/history.sqlite
 /dotfiles/ipython/profile_default/security
-/config/tianbar/bower_components
-/config/tianbar/node_modules
 /dotfiles/stack/build-plan
 /dotfiles/stack/build-plan-cache
 /dotfiles/stack/global-project/.stack-work

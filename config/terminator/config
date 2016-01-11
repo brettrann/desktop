@@ -1,23 +1,65 @@
 [global_config]
-  enabled_plugins = InactivityWatch, ActivityWatch, TerminalShot
+  title_transmit_bg_color = "#c48a8b"
+  inactive_color_offset = 0.71
+  borderless = True
 [keybindings]
+[profiles]
+  [[default]]
+    use_system_font = False
+    background_image = None
+    foreground_color = "#839496"
+    scroll_on_output = False
+    show_titlebar = False
+    font = Source Code Pro for Powerline Medium 10
+    background_color = "#002b36"
 [layouts]
   [[default]]
     [[[child1]]]
-      parent = window0
       type = Terminal
+      parent = window0
     [[[window0]]]
-      parent = ""
       type = Window
+      parent = ""
+  [[twoup header/footer]]
+    [[[child0]]]
+      position = 960:17
+      type = Window
+      order = 0
+      parent = ""
+      size = 958, 957
+    [[[child1]]]
+      position = 858
+      type = VPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 140
+      type = VPaned
+      order = 0
+      parent = child1
+    [[[child4]]]
+      position = 478
+      type = HPaned
+      order = 1
+      parent = child2
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+    [[[terminal5]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child4
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+    [[[terminal6]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child4
 [plugins]
-[profiles]
-  [[default]]
-    background_color = "#eee8d5"
-    background_image = None
-    cursor_color = "#002b36"
-    font = Anonymous Pro 11
-    foreground_color = "#002b36"
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    scrollback_infinite = True
-    urgent_bell = True
-    use_system_font = False

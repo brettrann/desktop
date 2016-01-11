@@ -5,12 +5,14 @@ setopt appendhistory nomatch hist_ignore_all_dups hist_ignore_space
 unsetopt autocd
 
 autoload -Uz compinit
+autoload -U colors && colors
 compinit
 
 export DESKTOP_ROOT=$(dirname $(dirname $(readlink ~/.zshrc)))
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias vi='vim'
 
 bindkey -e
 
@@ -41,14 +43,23 @@ if ! zgen saved; then
 
     zgen oh-my-zsh plugins/virtualenvwrapper
 
+    zgen oh-my-zsh zsh-plugins/chruby
+
     zgen load zsh-users/zsh-syntax-highlighting
 
-    zgen oh-my-zsh themes/jreese
+    zgen oh-my-zsh themes/agnoster
 
     zgen save
 fi
 
 source /usr/share/autojump/autojump.zsh
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
+
+function prompt_time {
+    echo \[$(date +%T)\]
+}
+RPROMPT='$(prompt_time)'
 
 # global /etc/zshprofile overrides $PATH
 # oh-my-zsh overrides $PAGER

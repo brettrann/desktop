@@ -30,13 +30,13 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.TwoPane
 import qualified XMonad.StackSet as S
 import XMonad.Util.EZConfig (additionalKeys, removeKeys)
+import System.IO
 import XMonad.Util.Run
 import XMonad.Util.WorkspaceCompare
 
 import Graphics.X11.ExtraTypes.XF86
 
 import System.Environment
-import System.Tianbar.XMonadLog
 
 -- For default configuration, see
 -- http://xmonad.org/xmonad-docs/xmonad/src/XMonad-Config.html
@@ -73,7 +73,7 @@ imLayout = named "IM" $
           pidginRoster    = And (ClassName "Pidgin") (Role "buddy_list")
           -- TODO: distinguish Skype's main window better
           skypeRoster     = Title $ skypeLogin ++ " - Skype™"
-          skypeLogin      = "koterpillar"
+          skypeLogin      = "brettrann"
 
 mosaicLayout = MosaicAlt M.empty
 
@@ -91,31 +91,6 @@ myManageHook = composeAll
     ]
 
 modm = mod4Mask
-
-myMarkup :: MarkupRenderer
-myMarkup layout title workspaces _ _ = do
-    H.span ! A.class_ (toValue "workspaces") $
-        mapM_ wsHtml workspaces
-    H.span ! A.class_ (toValue "layout") $ toMarkup layout
-    H.span ! A.class_ (toValue "title") $ toMarkup title
-    where
-        wsHtml w = H.span ! A.class_ (toValue $ unwords classes) $
-            if isJust icon
-                then do
-                    H.i ! A.class_ (toValue $ "fa fa-" ++ fromJust icon) $
-                        toMarkup ""
-                    H.sub $ toMarkup tag
-                else
-                    toMarkup tag
-            where
-                classes =
-                    ["workspace"] ++
-                    ["current" | wsCurrent w] ++
-                    ["hidden"  | wsHidden w] ++
-                    ["urgent"  | wsUrgent w] ++
-                    ["empty"   | wsEmpty w]
-                tag = wsTag w
-                icon = workspaceIcon tag
 
 maxVolume :: Double
 maxVolume = 0x10000
@@ -232,13 +207,17 @@ main = do
                [((m .|. modm, k), windows $ f i)
                    | (i, k) <- zip myWorkspaces $ [xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal]
                    , (f, m) <- [(S.greedyView, 0), (S.shift, shiftMask)]]
+    xmproc <- spawnPipe "/usr/bin/xmobar /home/dev/.config/xmobar/xmobarrc"
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
         { terminal = "terminator"
         , workspaces = myWorkspaces
         , handleEventHook = fullscreenEventHook
         , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
-        , layoutHook = avoidStruts layout
-        , logHook = dbusLogWithMarkup client myMarkup
+        , layoutHook = avoidStruts $ layoutHook defaultConfig
+        , logHook = dynamicLogWithPP xmobarPP
+                { ppOutput = hPutStrLn xmproc
+                , ppTitle = xmobarColor "green" "" . shorten 50
+                }
         , modMask = modm
         } `removeKeys`
         [ (modm                 , xK_p)

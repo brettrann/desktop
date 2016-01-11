@@ -1,8 +1,8 @@
 templates:
   scm-init: git
   params:
-    author-name: Alexey Kotlyarov
-    author-email: a@koterpillar.com
-    github-username: koterpillar
+    author-name: Brett Rann
+    author-email: brettrann@gmail.com
+    github-username: brettrann
 
 compiler-check: newer-minor
