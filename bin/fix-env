@@ -2,6 +2,7 @@
 
 setxkbmap -option altwin:swap_alt_win
 
+# this left as example. from @koterpillar
 case $(hostname) in
 	shancha)
 		xrandr --auto
@@ -15,18 +16,6 @@ case $(hostname) in
 			pactl set-card-profile 0 output:hdmi-stereo-extra1
 		else
 			pactl set-card-profile 0 output:analog-stereo
-		fi
-	;;
-	devs-alexey)
-		xrandr --output DVI-1 --auto --right-of DVI-0
-	;;
-	mujin)
-		xrandr --auto
-		if xrandr | grep -q "DP-0 connected"
-		then
-			xrandr --output DP-0 --mode 1920x1080 --pos 0x0 --rotate normal --primary --output LVDS-0 --mode 1280x800 --pos 1920x500 --rotate normal
-		else
-			xrandr --output LVDS-0 --mode 1280x800
 		fi
 	;;
 esac
