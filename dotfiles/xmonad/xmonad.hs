@@ -8,8 +8,6 @@ import qualified Data.Map as M
 import Data.Maybe
 import Data.String.Utils
 
-import DBus.Client
-
 import Text.Blaze
 import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
@@ -170,7 +168,6 @@ main = do
     unsetEnv "GHC_PACKAGE_PATH"
     getEnv "PREVPATH" >>= setEnv "PATH"
     unsetEnv "PREVPATH"
-    client <- connectSession
     browser <- liftM (fromMaybe "chromium") $ lookupEnv "BROWSER"
     let keys = [ ((0                   , xF86XK_Messenger), spawn "pidgin")
 

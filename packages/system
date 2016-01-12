@@ -1,9 +1,11 @@
 curl
 dnsutils
+dmidecode
 ecryptfs-utils
 ghc
 htop
 iftop
+ibus
 iotop
 lsof
 ltrace

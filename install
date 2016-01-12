@@ -42,6 +42,14 @@ PIP_INSTALL='pip install --user'
 # Packages
 # Files in packages/ may contain Bash brace expansions
 $INSTALL $(bash -c "echo $(echo $(cat packages/* | grep -v '^[a-z]\+:'))")
+
+# install virtualbox additions if appropraite
+
+if sudo dmidecode -t system|grep 'VirtualBox'
+then
+	$INSTALL virtualbox-guest-utils
+fi
+
 $AUR_INSTALL $(bash -c "echo $(echo $(cat packages/* | sed '/^aur:/!d;s/^aur://g'))")
 stack setup
 $STACK_INSTALL $(bash -c "echo $(echo $(cat packages/* | sed '/^stack:/!d;s/^stack://g'))")
