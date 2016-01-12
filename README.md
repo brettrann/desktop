@@ -11,5 +11,7 @@ My arch/xmonad desktop environment configuration.
 6. `git clone https://github.com/brettrann/desktop`
 7. set up symbolic links: `./desktop/makelinks`
 8. run the installer `./desktop/install`
+9. on the first install aur will complain that gcc and gcc-multilib are in conflict.
+   For this first case edit `install` and change Aur's `--noconfirm` to `--confirm` and rerun `./desktop/install`
 
 [arch_install_guide]: https://wiki.archlinux.org/index.php/beginners'_guide
