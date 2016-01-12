@@ -45,7 +45,7 @@ $INSTALL $(bash -c "echo $(echo $(cat packages/* | grep -v '^[a-z]\+:'))")
 
 # install virtualbox additions if appropraite
 
-if sudo dmidecode -t system|grep 'VirtualBox'
+if sudo dmidecode -t system|grep 'VirtualBox' > /dev/null
 then
 	$INSTALL virtualbox-guest-utils
 fi

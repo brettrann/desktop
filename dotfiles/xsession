@@ -47,8 +47,13 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
 
 terminator -l dev &
 
+dropbox &
+
+1pass &
+
 if type "/usr/bin/VBoxClient-all" > /dev/null; then
-  /usr/bin/VBoxClient-all
+  /usr/bin/VBoxClient-all &
 fi
+
 
 exec xmonad
