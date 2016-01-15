@@ -7,7 +7,6 @@ gitg
 graphviz
 gvim
 happy
-aur:haskell-stack
 stack:hdevtools
 ipython{,2}
 jq
@@ -21,6 +20,7 @@ python{,2}{,-pylint,-virtualenv}
 qemu
 aur:ruby-install-git
 sshfs
+stack
 stack:stylish-haskell
 tcpdump
 the_silver_searcher
