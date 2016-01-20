@@ -1,6 +1,6 @@
 [submodule "dotfiles/vim"]
 	path = dotfiles/vim
-	url = git@github.com:koterpillar/vim.git
+	url = git@github.com:brettrann/vim.git
 	branch = master
 [submodule "vendor/zgen"]
 	path = vendor/zgen
