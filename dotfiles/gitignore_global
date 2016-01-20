@@ -1,6 +1,8 @@
 .sw?
 .*.sw?
 .~lock.*#
+.DS_Store
 /tags
 /.ropeproject
 /.vimrc
+__MACOSX

@@ -4,6 +4,7 @@ ctags
 stack:ghc-mod
 git
 gitg
+graphviz
 gvim
 happy
 aur:haskell-stack
@@ -14,6 +15,7 @@ meld
 moreutils
 nodejs
 npm
+aur:phantomjs-bin-1.9.8
 python-virtualenvwrapper
 python{,2}{,-pylint,-virtualenv}
 qemu

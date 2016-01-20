@@ -28,7 +28,6 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.TwoPane
 import qualified XMonad.StackSet as S
 import XMonad.Util.EZConfig (additionalKeys, removeKeys)
-import System.IO
 import XMonad.Util.Run
 import XMonad.Util.WorkspaceCompare
 
@@ -193,10 +192,6 @@ main = do
 
                , ((modm                , xK_o    ), spawn "synapse")
 
-               , ((modm                , xK_h    ), withFocused $ sendMessage . expandWindowAlt)
-               , ((modm                , xK_l    ), withFocused $ sendMessage . shrinkWindowAlt)
-               , ((modm .|. shiftMask  , xK_h    ), withFocused $ sendMessage . tallWindowAlt)
-               , ((modm .|. shiftMask  , xK_l    ), withFocused $ sendMessage . wideWindowAlt)
                , ((modm .|. controlMask, xK_space), sendMessage resetAlt)
                ]
                ++
