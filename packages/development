@@ -4,6 +4,7 @@ ctags
 stack:ghc-mod
 git
 gitg
+go
 graphviz
 gvim
 happy
