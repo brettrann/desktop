@@ -43,7 +43,7 @@ if ! zgen saved; then
 
     zgen oh-my-zsh plugins/virtualenvwrapper
 
-    zgen oh-my-zsh zsh-plugins/chruby
+    zgen oh-my-zsh plugins/chruby
 
     zgen load zsh-users/zsh-syntax-highlighting
 
