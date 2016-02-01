@@ -23,10 +23,10 @@ terminator
 tracker
 trayer
 ttf-anonymous-pro
-ttf-symbola
 xcompmgr
-xorg-xinit
 xmobar
+xorg-xinit
+xorg-xrandr
 zeitgeist
 zsh
 zsh-completions
