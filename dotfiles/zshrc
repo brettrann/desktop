@@ -64,3 +64,6 @@ RPROMPT='$(prompt_time)'
 # global /etc/zshprofile overrides $PATH
 # oh-my-zsh overrides $PAGER
 source $HOME/.zshenv
+
+# added by travis gem
+[ -f /home/dev/.travis/travis.sh ] && source /home/dev/.travis/travis.sh

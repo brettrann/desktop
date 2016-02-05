@@ -1,4 +1,5 @@
 cabal-install
+docker
 aur:chruby-git
 ctags
 stack:ghc-mod
@@ -8,6 +9,7 @@ go
 graphviz
 gvim
 happy
+aur:heroku-toolbelt
 stack:hdevtools
 ipython{,2}
 jq
