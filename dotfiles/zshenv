@@ -9,3 +9,5 @@ if [ "$COLORTERM" = "gnome-terminal" ] && [ "$TERM" = "xterm" ]
 then
     export TERM=xterm-256color
 fi
+
+source ~/.private_env

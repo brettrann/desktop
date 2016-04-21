@@ -8,11 +8,17 @@ autoload -Uz compinit
 autoload -U colors && colors
 compinit
 
-export DESKTOP_ROOT=$(dirname $(dirname $(readlink ~/.zshrc)))
+# export DESKTOP_ROOT=$(dirname $(dirname $(readlink ~/.zshrc)))
+export DESKTOP_ROOT="/Users/$(whoami)/$(dirname $(dirname $(readlink ~/.zshrc)))"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias vi='vim'
+
+# suffix alias
+alias -s rb=vim
+alias -s log="less -MN"
+alias -s html=safari
 
 bindkey -e
 
@@ -32,6 +38,33 @@ bindkey '^[[1~' vi-beginning-of-line
 
 source $DESKTOP_ROOT/vendor/zgen/zgen.zsh
 
+source ~/.caquino_tools.zsh
+
+#chruby
+  [[ -s $(brew --prefix)/opt/chruby/share/chruby/chruby.sh ]] && . $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+  [[ -s $(brew --prefix)/opt/chruby/share/chruby/auto.sh ]] && . $(brew --prefix)/opt/chruby/share/chruby/auto.sh
+
+#autojump
+  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+function prompt_time {
+    echo \[$(date +%T)\]
+}
+RPROMPT='$(prompt_time)'
+
+# global /etc/zshprofile overrides $PATH
+# oh-my-zsh overrides $PAGER
+source $HOME/.zshenv
+
+# added by travis gem
+# HUH? where did this come from...
+# [ -f /Users/brann/.travis/travis.sh ] && source /Users/brann/.travis/travis.sh
+
+# ADDED BY DOCKER-IMAGES
+source /Users/brann/Code/zendesk/docker-images/dockmaster/zdi.sh
+
+NEWLINE=$'\n'
+PROMPT="$PROMPT${NEWLINE} $ "
 DISABLE_VENV_CD=1
 DISABLE_UPDATE_PROMPT=true
 if ! zgen saved; then
@@ -51,19 +84,3 @@ if ! zgen saved; then
 
     zgen save
 fi
-
-source /usr/share/autojump/autojump.zsh
-source /usr/share/chruby/chruby.sh
-source /usr/share/chruby/auto.sh
-
-function prompt_time {
-    echo \[$(date +%T)\]
-}
-RPROMPT='$(prompt_time)'
-
-# global /etc/zshprofile overrides $PATH
-# oh-my-zsh overrides $PAGER
-source $HOME/.zshenv
-
-# added by travis gem
-[ -f /home/dev/.travis/travis.sh ] && source /home/dev/.travis/travis.sh
